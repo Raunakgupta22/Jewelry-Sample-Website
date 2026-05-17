@@ -522,4 +522,11 @@ footer {
     .about-container { flex-direction: column; }
     .ig-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-links { display: none; }
+    .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 1rem;
+    }
 }
