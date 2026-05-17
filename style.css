@@ -1,0 +1,525 @@
+/* --- VARIABLES --- */
+:root {
+    --emerald: #025043;
+    --emerald-light: #036b59;
+    --gold: #E4C37B;
+    --beige: #F5F5F0;
+    --soft-white: #FAFAFA;
+    --charcoal: #2C2C2C;
+    --gray: #7A7A7A;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+/* --- RESET & GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--charcoal);
+    background-color: var(--soft-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.bg-soft {
+    background-color: var(--beige);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--emerald);
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--emerald);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--emerald-light);
+}
+
+.btn-outline {
+    border-color: var(--soft-white);
+    color: var(--soft-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--soft-white);
+    color: var(--emerald);
+}
+
+.btn-wa {
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--emerald);
+    color: var(--emerald);
+    margin-top: 15px;
+}
+
+.btn-wa:hover {
+    background-color: var(--emerald);
+    color: white;
+}
+
+/* --- TEXT LOGO STYLING --- */
+.text-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #E4C37B;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease;
+}
+
+.text-logo:hover {
+    color: #fff; 
+}
+
+/* --- NAVBAR --- */
+/* --- NAVBAR (Top of the page - Solid Green) --- */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* transition must include backdrop-filter so the blur fades in smoothly */
+    transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+    padding: 20px 0;
+    
+    /* Solid, rich emerald green matching your brand logo */
+    background-color: #025043; 
+}
+
+/* --- NAVBAR (When you scroll down - Transparent & Blurry) --- */
+#navbar.scrolled {
+    padding: 12px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    
+    /* Semi-transparent green base so background elements can shine through */
+    background-color: rgba(2, 80, 67, 0.75); 
+    
+    /* The magical frosted glass blur effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    
+    /* Adds a thin, elegant glassy border to the bottom edge */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+/* Keeps your text visible and sharp over the blurred navbar */
+#navbar.scrolled .nav-links a {
+    color: var(--soft-white);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--soft-white);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* --- HERO --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(2, 80, 67, 0.6), rgba(2, 80, 67, 0.7)), url('https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--soft-white);
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* --- COLLECTION --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1/1;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+}
+
+.product-info {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.product-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.product-info .price {
+    color: var(--emerald);
+    font-weight: bold;
+}
+
+/* --- ABOUT --- */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--emerald);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: var(--gray);
+}
+
+/* --- FEATURES --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.feature-card {
+    padding: 30px 20px;
+    border: 1px solid var(--beige);
+    background: #fff;
+}
+
+.feature-card h3 {
+    font-family: var(--font-heading);
+    color: var(--emerald);
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* --- INSTAGRAM --- */
+.ig-link {
+    color: var(--emerald);
+    font-weight: bold;
+}
+
+.ig-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.ig-item {
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+.ig-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.ig-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- REVIEWS --- */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background: #fff;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.stars {
+    color: #E4C37B;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.review-card p {
+    font-style: italic;
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+.review-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* --- FAQ --- */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--charcoal);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+    padding-bottom: 20px;
+    color: var(--gray);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--emerald);
+    color: var(--soft-white);
+    padding: 60px 0 20px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.socials {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links a {
+    display: block;
+    margin-bottom: 10px;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-contact h4, .footer-links h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--gold);
+}
+
+.footer-contact p {
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+/* --- FLOATING WHATSAPP --- */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* --- ANIMATIONS --- */
+.reveal {
+    opacity: 1;
+    transform: translateY(40px);
+    transition: all 1.5s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .about-container { flex-direction: column; }
+    .ig-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+}
